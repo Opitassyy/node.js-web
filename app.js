@@ -15,8 +15,13 @@ app.use(bodyParser.json())
 // (7) import routes mahasiswa, dll
 const mahasiswaRoutes = require('./routes/mahasiswa')
 
+const authRoutes = require ('./routes/auth')
+
 // (8) daftarkan mahasiswaRoutes ke express
 app.use('/mahasiswa',mahasiswaRoutes)
+
+app.use('/auth',authRoutes)
+
 
 // (3) koneksi ke mongodb
 mongoose.connect(process.env.DB_CONNECTION, {useNewUrlParser : true, useUnifiedTopology : true})
